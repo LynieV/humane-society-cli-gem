@@ -1,8 +1,0 @@
-class CLI
-
-  def start
-    puts "welcome to Hornell Humane Society"
-    puts ""
-  end
-
-end 
