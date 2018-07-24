@@ -15,4 +15,10 @@ class HumaneSociety::Scraper
     end
   end
 
+  def scrape_donations_items(donation_type)
+    url = donation_type.url
+    doc = Nokogiri::HTML(open(url))
+    donation_type.list_items = doc.css() #list items <li>
+  end
+
 end

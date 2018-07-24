@@ -16,6 +16,17 @@ class HumaneSociety::CLI
     donations.each.with_index(1) do |index, donate|
       puts "#{index}. #{donate.heading}"
     end
+
+    puts ""
+    puts "Please select a donation type to view needed items:"
+
+    input = gets.strip
+    index = input.to_i - 1
+
+    donation_type = HumaneSociety::DonationType.all[index]
+
+    HumaneSociety::Scraper.scrape_donations_items(donation_type)
+
   end
 
 end

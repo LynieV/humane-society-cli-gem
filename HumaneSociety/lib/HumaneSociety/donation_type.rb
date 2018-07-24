@@ -1,5 +1,5 @@
 class HumaneSociety::DonationType
-  attr_accessor :heading, :url, :list_item
+  attr_accessor :heading, :url, :list_items
 
   @@all = []
 
