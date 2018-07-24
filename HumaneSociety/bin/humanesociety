@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
-require_relative "../lib/HumaneSociety"
+require_relative "../lib/environment"
 
-HumaneSociety::Cli.new.start
+#HumaneSociety::
+CLI.new.start
 #("HumaneSociety")

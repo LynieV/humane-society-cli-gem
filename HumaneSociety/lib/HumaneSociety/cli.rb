@@ -1,8 +1,12 @@
 class CLI
 
   def start
-    puts "welcome to Hornell Humane Society"
+    puts "welcome to Hornell Humane Society donations"
     puts ""
+  end
+
+  def main_menu
+    puts "Here is a list of donation options!"
   end
 
 end
