@@ -1,4 +1,4 @@
-class CLI
+class HumaneSociety::CLI
 
   def start
     puts "welcome to Hornell Humane Society donations"
@@ -7,6 +7,7 @@ class CLI
 
   def main_menu
     puts "Here is a list of donation options!"
+    HumaneSociety::Scraper.scrape_donations
   end
 
 end
