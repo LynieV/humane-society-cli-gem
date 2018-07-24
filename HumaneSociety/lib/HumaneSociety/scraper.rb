@@ -10,6 +10,8 @@ class HumaneSociety::Scraper
     doc.css("box-09").each do |donate|
       heading = donate.css(".box-09_cnt box-09_padbot01 cnt-bg05 a").text
       url = donate.css(".box-09_cnt box-09_padbot01 cnt-bg05 a").attribute("href").value
+
+      HumaneSociety::DonationType.new(heading, url)
     end
   end
 

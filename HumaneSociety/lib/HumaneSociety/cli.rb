@@ -3,11 +3,19 @@ class HumaneSociety::CLI
   def start
     puts "welcome to Hornell Humane Society donations"
     puts ""
+
+    HumaneSociety::Scraper.scrape_donations
+    main_menu
   end
 
   def main_menu
     puts "Here is a list of donation options!"
-    HumaneSociety::Scraper.scrape_donations
+
+    donations = HumaneSociety::DonationType.all
+
+    donations.each.with_index(1) do |index, donate|
+      puts "#{index}. #{donate.heading}"
+    end
   end
 
 end
