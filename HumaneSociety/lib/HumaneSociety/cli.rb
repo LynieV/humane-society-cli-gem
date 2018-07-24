@@ -27,6 +27,12 @@ class HumaneSociety::CLI
 
     HumaneSociety::Scraper.scrape_donations_items(donation_type)
 
+    puts "Here are the items:"
+    puts ""
+    puts donation_type.list_items
+
+    main_menu
+
   end
 
 end
