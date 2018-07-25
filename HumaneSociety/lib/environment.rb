@@ -5,7 +5,7 @@ module HumaneSociety
 end
 
 require 'nokogiri'
-require 'open_uri'
+require 'open-uri'
 require 'pry'
 require_relative "./HumaneSociety/version"
 require_relative "./HumaneSociety/cli"

@@ -1,38 +1,70 @@
+# CLI Controller
+
 class HumaneSociety::CLI
 
   def start
-    puts "welcome to Hornell Humane Society donations"
+    puts "Welcome to Hornell Humane Society donations."
     puts ""
+    list_options
+    menu
+    goodbye
 
     HumaneSociety::Scraper.scrape_donations
     main_menu
   end
 
-  def main_menu
-    puts "Here is a list of donation options!"
+  def list_options
+    puts "What type of donation would you like to make?"
+    puts "1 Financial"
+    puts "2 Supplies"
+  end
 
-    donations = HumaneSociety::DonationType.all
-
-    donations.each.with_index(1) do |index, donate|
-      puts "#{index}. #{donate.heading}"
+  def menu
+    input = nil
+    while input != "exit"
+      puts "Please enter the number for your choice:"
+      input = gets.strip.downcase
+      case input
+      when "1"
+        puts "Please send checks to:"
+        puts "Hornell Humane Society"
+        puts "7649 Industrial Park Road"
+        puts "Hornell, NY 14843"
+      when "2"
+        puts "Supply Headings"
+      end
     end
+  end
 
-    puts ""
-    puts "Please select a donation type to view needed items:"
+  #def main_menu
+    #puts "Here is a list of donation options!"
 
-    input = gets.strip
-    index = input.to_i - 1
+    #donations = HumaneSociety::DonationType.all
 
-    donation_type = HumaneSociety::DonationType.all[index]
+    #donations.each.with_index(1) do |index, donate|
+      #puts "#{index}. #{donate.heading}"
+    #end
 
-    HumaneSociety::Scraper.scrape_donations_items(donation_type)
+    #puts ""
+    #puts "Please select a donation type to view needed items:"
 
-    puts "Here are the items:"
-    puts ""
-    puts donation_type.list_items
+    #input = gets.strip
+    #index = input.to_i - 1
 
-    main_menu
+    #donation_type = HumaneSociety::DonationType.all[index]
 
+    #HumaneSociety::Scraper.scrape_donations_items(donation_type)
+
+    #puts "Here are the items:"
+    #puts ""
+    #puts donation_type.list_items
+
+    #main_menu
+
+  #end
+
+  def goodbye
+    puts "Thank you!"
   end
 
 end
