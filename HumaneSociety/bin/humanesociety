@@ -1,8 +1,0 @@
-#!/usr/bin/env ruby
-
-#executable
-
-require_relative "../lib/environment"
-
-HumaneSociety::CLI.new.start
-#("HumaneSociety")
