@@ -32,6 +32,10 @@ class HumaneSociety::CLI
         puts "Hornell, NY 14843"
       when "2"
         puts "Supply Headings"
+      #when "list"
+        #list_options
+      else 
+        "Please choose a valid option or type exit"
       end
     end
   end
