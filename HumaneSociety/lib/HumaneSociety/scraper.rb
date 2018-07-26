@@ -9,16 +9,15 @@ class HumaneSociety::Scraper
 
     doc.css("box-09").each do |donate|
       heading = donate.css(".box-09_cnt a").text
-      url = donate.css(".box-09_cnt a").attribute("href").value
 
-      HumaneSociety::DonationType.new(heading, url)
+
+      HumaneSociety::Supplies.new(heading)
     end
   end
 
   def self.scrape_donations_items(donation_type)
-    url = donation_type.url
-    doc = Nokogiri::HTML(open(url))
-    donation_type.list_items = doc.css() #list items <li>
+    doc = Nokogiri::HTML(open(BASE_URL))
+    list = donate.css(".box-09_cnt a").children
   end
 
 end

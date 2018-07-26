@@ -1,11 +1,11 @@
-class HumaneSociety::DonationType
-  attr_accessor :heading, :url, :list_items
+class HumaneSociety::Supplies
+  attr_accessor :heading, :list_items
 
   @@all = []
 
-  def initialize(heading, url)
+  def initialize(heading)
     @heading = heading
-    @url = url
+    #@url = url
     @@all << self
   end
 
