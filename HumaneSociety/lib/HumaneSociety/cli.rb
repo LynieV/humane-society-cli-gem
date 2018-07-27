@@ -37,30 +37,34 @@ class HumaneSociety::CLI
          puts "Hornell, NY 14843"
        #when "2"
        elsif input == "2"
-    puts "Here is a list of donation options!"
+         puts "Here is a list of donation options:"
 
-    donations = HumaneSociety::Supplies.all
+         donations = HumaneSociety::Supplies.all
 
-    donations.each.with_index(1) do |index, donate|
-      puts "#{index}. #{donate.heading}"
+         donations.each.with_index(1) do |index, donate|
+           puts "#{index}. #{donate.heading}"
+         end
+
+
+         #binding.pry
+      puts ""
+      puts "Please select a donation type to view needed items:"
+
+      input = gets.strip
+      index = input.to_i - 1
+
+      supply = HumaneSociety::Supplies.all[index]
+
+      HumaneSociety::Scraper.scrape_donations_items(donation_type)
+
+      puts "Here are the items:"
+      puts ""
+      puts supply.list_items
+    else
+      puts "Please choose a valid option or type exit"
     end
     #binding.pry
-    puts ""
-    puts "Please select a donation type to view needed items:"
-
-    input = gets.strip
-    index = input.to_i - 1
-
-    supply = HumaneSociety::Supplies.all[index]
-
-    HumaneSociety::Scraper.scrape_donations_items(donation_type)
-
-    puts "Here are the items:"
-    puts ""
-    puts supply.list_items
-    #binding.pry
     main_menu
-
   end
 
   def goodbye

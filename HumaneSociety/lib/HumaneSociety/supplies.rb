@@ -5,7 +5,6 @@ class HumaneSociety::Supplies
 
   def initialize(heading)
     @heading = heading
-    #@url = url
     @@all << self
   end
 

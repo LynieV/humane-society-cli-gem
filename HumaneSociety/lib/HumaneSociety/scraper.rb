@@ -7,23 +7,17 @@ class HumaneSociety::Scraper
   def self.scrape_donations
     doc = Nokogiri::HTML(open(BASE_URL))
 
+    #doc.css(".box-09").each do |donate|
+      #heading = donate.css(".box-09_cnt a").text
+
     doc.css(".box-09_cnt").each do |supplies|
-        binding.pry
+        #binding.pry
         supplies.css("a").attribute.each do |supply|
           heading = supply.css
 
-        #  def self.scrape_companies
-    #doc = Nokogiri::HTML(open(BASE_URL))
+        HumaneSociety::Supplies.new(heading)
 
-    #doc.css('#list-detail-left-column').each do |companies|
-      #companies.css('.company')[0..9].each do |company_info|
-        #name = company_info.css('a.title').text.strip
-        #url = company_info.css('a.title').attribute('href').value
-        #industry = company_info.css('.industry').text.strip
-      #Top10Companies::Company.new(name, url, industry)
-    #end
-    #end
-  #end
+
 
           #str = 'one two three four five six seven'
           #str.split.each_slice(2).map{|a|a.join ' '}
@@ -31,11 +25,10 @@ class HumaneSociety::Scraper
 
         #doc.css(".box-09_cnt a").text
       #<< HumaneSociety::Supplies.all
-    #.css(".box-09").each do |donate|
-      #heading = donate
+
 
       end
-      HumaneSociety::Supplies.new(heading)
+    end
 
   end
 
@@ -45,3 +38,16 @@ class HumaneSociety::Scraper
   end
 
 end
+
+#  def self.scrape_companies
+#doc = Nokogiri::HTML(open(BASE_URL))
+
+#doc.css('#list-detail-left-column').each do |companies|
+#companies.css('.company')[0..9].each do |company_info|
+#name = company_info.css('a.title').text.strip
+#url = company_info.css('a.title').attribute('href').value
+#industry = company_info.css('.industry').text.strip
+#Top10Companies::Company.new(name, url, industry)
+#end
+#end
+#end
