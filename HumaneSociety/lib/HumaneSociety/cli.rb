@@ -27,51 +27,62 @@ class HumaneSociety::CLI
        puts ""
        puts "Please enter the number for your choice or type exit:"
        input = gets.strip.downcase
-       #case input
-       #when "1"
-       if input == "1"
+       #if input.to_i >0
+        #puts @deals{input.to_i - 1}
+
+       case input
+       when "1"
+       #if input == "1"
          puts "Please send checks to:"
          puts ""
          puts "Hornell Humane Society"
          puts "7649 Industrial Park Road"
          puts "Hornell, NY 14843"
-       #when "2"
-       elsif input == "2"
-         puts "Here is a list of donation options:"
-
-         donations = HumaneSociety::Supplies.all
-
-         donations.each.with_index(1) do |index, donate|
-           puts "#{index}. #{donate.heading}"
-         end
+       when "2"
+       #elsif input == "2"
+         puts "Here are the types of supplies needed:"
+        headings
 
 
+       else
+         puts "Please choose a valid option or type exit"
+       end
+     end
+   end
+
+   def headings
+     donations = HumaneSociety::Supplies.all
+
+     donations.each.with_index(1) do |index, donate|
+       puts "#{index}. #{donate.heading}"
+     end
+   end
+
+   def goodbye
+     puts "Thank you!"
+   end
+
+ end
          #binding.pry
-      puts ""
-      puts "Please select a donation type to view needed items:"
+  #     puts ""
+  #     puts "Please select a donation type to view needed items:"
+  #
+  #     input = gets.strip
+  #     index = input.to_i - 1
+  #
+  #     supply = HumaneSociety::Supplies.all[index]
+  #
+  #     HumaneSociety::Scraper.scrape_donations_items(donation_type)
+  #
+  #     puts "Here are the items:"
+  #     puts ""
+  #     puts supply.list_items
+  #
+  #   #binding.pry
+  #   main_menu
+  # end
 
-      input = gets.strip
-      index = input.to_i - 1
 
-      supply = HumaneSociety::Supplies.all[index]
-
-      HumaneSociety::Scraper.scrape_donations_items(donation_type)
-
-      puts "Here are the items:"
-      puts ""
-      puts supply.list_items
-    else
-      puts "Please choose a valid option or type exit"
-    end
-    #binding.pry
-    main_menu
-  end
-
-  def goodbye
-    puts "Thank you!"
-  end
-
-end
 
 #def menu
   #input = nil

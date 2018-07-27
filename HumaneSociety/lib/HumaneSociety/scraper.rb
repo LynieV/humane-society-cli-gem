@@ -6,30 +6,24 @@ class HumaneSociety::Scraper
 
   def self.scrape_donations
     doc = Nokogiri::HTML(open(BASE_URL))
-
+    #binding.pry
     #doc.css(".box-09").each do |donate|
       #heading = donate.css(".box-09_cnt a").text
-
-    doc.css(".box-09_cnt").each do |supplies|
-        #binding.pry
-        supplies.css("a").attribute.each do |supply|
-          heading = supply.css
-
+    supply_string = doc.css(".box-09_cnt a").text
+    supply_array = supply_string.split(" ")
+    supply_array.map do |supplies|
+        supplies.split(/(?=[A-Z&])/)
+    end
+      #heading = supply_string.split.each_slice.map{|a|a.join ' '}
+    #binding.pry
+    #array.join(" ")
         HumaneSociety::Supplies.new(heading)
-
-
-
           #str = 'one two three four five six seven'
           #str.split.each_slice(2).map{|a|a.join ' '}
           #=> ["one two", "three four", "five six", "seven"]
 
         #doc.css(".box-09_cnt a").text
       #<< HumaneSociety::Supplies.all
-
-
-      end
-    end
-
   end
 
   def self.scrape_donations_items(donation_type)
