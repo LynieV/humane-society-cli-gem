@@ -13,6 +13,12 @@ class HumaneSociety::Scraper
     supply_arrays = supply_string.split(" ")
     supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
     supply_array.delete_at(-2)
+    array_headings = [supply_array[0..2],
+    supply_array[3..4],
+    supply_array[5..6],
+    supply_array[7..9],
+    supply_array[10..11],
+    supply_array[12]]
     # supply_arrays.map do |supplies|
     #     supplies.split(/(?=[A-Z&])/)
     #
