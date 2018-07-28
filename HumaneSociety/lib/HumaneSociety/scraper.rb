@@ -10,10 +10,15 @@ class HumaneSociety::Scraper
     #doc.css(".box-09").each do |donate|
       #heading = donate.css(".box-09_cnt a").text
     supply_string = doc.css(".box-09_cnt a").text
-    supply_array = supply_string.split(" ")
-    supply_array.map do |supplies|
-        supplies.split(/(?=[A-Z&])/)
-    end
+    supply_arrays = supply_string.split(" ")
+    supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
+    supply_array.delete_at(-2)
+    # supply_arrays.map do |supplies|
+    #     supplies.split(/(?=[A-Z&])/)
+    #
+    # end
+    #supply_string = doc.css(".box-09_cnt a").children.text
+    binding.pry
       #heading = supply_string.split.each_slice.map{|a|a.join ' '}
     #binding.pry
     #array.join(" ")
