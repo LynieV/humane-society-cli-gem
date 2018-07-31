@@ -5,6 +5,7 @@ class HumaneSociety::Scraper
   #@@url =
 
   def self.scrape_donations
+    binding.pry
     doc = Nokogiri::HTML(open(BASE_URL))
     #binding.pry
     #doc.css(".box-09").each do |donate|
@@ -14,7 +15,8 @@ class HumaneSociety::Scraper
     supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
     supply_array.delete_at(-2)
 
-    array_headings = [supply_array[0..2].join(" "),
+    #array_headings
+    heading = [supply_array[0..2].join(" "),
     supply_array[3..4].join(" "),
     supply_array[5..6].join(" "),
     supply_array[7..9].join(" "),
@@ -28,7 +30,7 @@ class HumaneSociety::Scraper
     #
     # end
     #supply_string = doc.css(".box-09_cnt a").children.text
-    binding.pry
+    #binding.pry
       #heading = supply_string.split.each_slice.map{|a|a.join ' '}
     #binding.pry
     #array.join(" ")
