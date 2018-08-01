@@ -37,9 +37,9 @@ class HumaneSociety::CLI
          puts "Hornell, NY 14843"
       when "2"
        #elsif input == "2"
-         puts "Here are the types of supplies needed:"
+        puts "Here are the types of supplies needed:"
         headings
-
+        #headings_menu
       when "exit"
         goodbye
 
@@ -50,17 +50,24 @@ class HumaneSociety::CLI
    end
 
    def headings
-     HumaneSociety::Scraper.scrape_donations
 
+     HumaneSociety::Scraper.scrape_donations
      @supply = HumaneSociety::Supplies.all
 
-     @supply.each.with_index(1) do |index, donate|
+     @supply.each.with_index(1) do |donate, index|
        puts "#{index}. #{donate.heading}"
      end
    end
 
+   def headings_menu
+     #If number is 1-6
+     #"put the heading for the index I chose"
+   end
+
    def goodbye
+     puts ""
      puts "Thank you!"
+     puts ""
    end
 
  end

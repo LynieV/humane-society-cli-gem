@@ -6,6 +6,7 @@ class HumaneSociety::Scraper
     doc = Nokogiri::HTML(open(BASE_URL))
 
     supply_string = doc.css(".box-09_cnt a").text
+    #supply_string = doc.css(".box-09_cnt a")[0].text
     supply_arrays = supply_string.split(" ")
     supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
     supply_array.delete_at(-2)
@@ -17,7 +18,9 @@ class HumaneSociety::Scraper
     supply_array[10..11].join(" "),
     supply_array[12]]
 
-    HumaneSociety::Supplies.new(headings)
+    headings.each do |heading|
+      HumaneSociety::Supplies.new(heading)
+    end
 
   end
 
