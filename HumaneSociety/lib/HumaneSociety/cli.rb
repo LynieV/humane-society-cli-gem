@@ -8,11 +8,7 @@ class HumaneSociety::CLI
     list_options
 
     main_menu
-    #goodbye
 
-
-    #binding.pry
-    #main_menu
   end
 
   def list_options
@@ -24,37 +20,41 @@ class HumaneSociety::CLI
 
   def main_menu
     input = nil
-     while input != "exit"
+    while input != "exit"
        puts ""
        puts "Please enter the number for your choice or type exit:"
        input = gets.strip.downcase
        #if input.to_i >0
         #puts @deals{input.to_i - 1}
 
-       case input
-       when "1"
+      case input
+      when "1"
        #if input == "1"
          puts "Please send checks to:"
          puts ""
          puts "Hornell Humane Society"
          puts "7649 Industrial Park Road"
          puts "Hornell, NY 14843"
-       when "2"
+      when "2"
        #elsif input == "2"
          puts "Here are the types of supplies needed:"
         headings
 
+      when "exit"
+        goodbye
 
-       else
+      else
          puts "Please choose a valid option or type exit"
-       end
+      end
      end
    end
 
    def headings
-     donations = HumaneSociety::Scraper.scrape_donations
+     HumaneSociety::Scraper.scrape_donations
 
-     donations.each.with_index(1) do |index, donate|
+     @supply = HumaneSociety::Supplies.all
+
+     @supply.each.with_index(1) do |index, donate|
        puts "#{index}. #{donate.heading}"
      end
    end

@@ -6,6 +6,7 @@ class HumaneSociety::Supplies
   def initialize(heading)
     @heading = heading
     @@all << self
+
   end
 
   def self.all
