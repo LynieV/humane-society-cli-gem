@@ -5,11 +5,9 @@ class HumaneSociety::Scraper
   #@@url =
 
   def self.scrape_donations
-    binding.pry
-    doc = Nokogiri::HTML(open(BASE_URL))
     #binding.pry
-    #doc.css(".box-09").each do |donate|
-      #heading = donate.css(".box-09_cnt a").text
+    doc = Nokogiri::HTML(open(BASE_URL))
+
     supply_string = doc.css(".box-09_cnt a").text
     supply_arrays = supply_string.split(" ")
     supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
@@ -23,24 +21,8 @@ class HumaneSociety::Scraper
     supply_array[10..11].join(" "),
     supply_array[12]]
 
-
-
-    # supply_arrays.map do |supplies|
-    #     supplies.split(/(?=[A-Z&])/)
-    #
-    # end
-    #supply_string = doc.css(".box-09_cnt a").children.text
-    #binding.pry
-      #heading = supply_string.split.each_slice.map{|a|a.join ' '}
-    #binding.pry
-    #array.join(" ")
         HumaneSociety::Supplies.new(heading)
-          #str = 'one two three four five six seven'
-          #str.split.each_slice(2).map{|a|a.join ' '}
-          #=> ["one two", "three four", "five six", "seven"]
 
-        #doc.css(".box-09_cnt a").text
-      #<< HumaneSociety::Supplies.all
   end
 
   def self.scrape_donations_items(donation_type)
@@ -62,3 +44,26 @@ end
 #end
 #end
 #end
+
+#binding.pry
+#doc.css(".box-09").each do |donate|
+  #heading = donate.css(".box-09_cnt a").text
+
+
+
+      # supply_arrays.map do |supplies|
+      #     supplies.split(/(?=[A-Z&])/)
+      #
+      # end
+      #supply_string = doc.css(".box-09_cnt a").children.text
+      #binding.pry
+        #heading = supply_string.split.each_slice.map{|a|a.join ' '}
+      #binding.pry
+      #array.join(" ")
+
+      #str = 'one two three four five six seven'
+      #str.split.each_slice(2).map{|a|a.join ' '}
+      #=> ["one two", "three four", "five six", "seven"]
+
+    #doc.css(".box-09_cnt a").text
+  #<< HumaneSociety::Supplies.all
