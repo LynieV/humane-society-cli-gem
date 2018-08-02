@@ -5,15 +5,16 @@ class HumaneSociety::Scraper
   def self.scrape_donations
     doc = Nokogiri::HTML(open(BASE_URL))
 
-    supply_string = doc.css(".box-09_cnt a").text
+    supply_string = doc.css(".box-09_cnt a").text #text jumbled together
     #supply_string = doc.css(".box-09_cnt a")[0].text
-    supply_arrays = supply_string.split(" ")
+    supply_arrays = supply_string.split(" ") #split text at spaces
     supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
-    supply_array.delete_at(-2)
+      #split at capital letters and & and nested array becomes one array of strings
+    supply_array.delete_at(-2) #remove final "&"
 
     headings = [supply_array[0..2].join(" "),
     supply_array[3..4].join(" "),
-    supply_array[5..6].join(" "),
+    supply_array[5..6].join(" "), # join strings into array of heading strings
     supply_array[7..9].join(" "),
     supply_array[10..11].join(" "),
     supply_array[12]]
@@ -26,8 +27,11 @@ class HumaneSociety::Scraper
 
   def self.scrape_donations_items
     doc = Nokogiri::HTML(open(BASE_URL))
-    list = doc.css(".box-09_cnt li")[0..8]
+    list = doc.css(".box-09_cnt li")#[0..8] - best way to separate lists?
     list_items = list.each {|item| puts "#{item.text}"}
+
+    #Is there a way to call out list according to heading?
+    #Or create an array of index numbers to call with heading number?
     #doc.css(".box-09_cnt li")[9..18]
     #doc.css(".box-09_cnt li")[19..32]
     #doc.css(".box-09_cnt li")[33..36]

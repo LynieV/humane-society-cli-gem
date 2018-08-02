@@ -68,10 +68,14 @@ class HumaneSociety::CLI
          #puts @deals{input.to_i - 1}
 
        case input
-       when "1"
+       when "1" #If number is 1-6- can I call these together and then
+         #if anything else it gives generic "invalid response"
+         #puts "Toys & Enrichment" #call heading and then list_items
+         #puts ""
+         #puts "list_items [0..8]" #how do I get the right list items?
      HumaneSociety::Scraper.scrape_donations_items
-     #If number is 1-6
-     #"put the heading for the index I chose"
+
+
    end
 
    def goodbye
