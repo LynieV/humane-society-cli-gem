@@ -24,9 +24,17 @@ class HumaneSociety::Scraper
 
   end
 
-  def self.scrape_donations_items(donation_type)
+  def self.scrape_donations_items
     doc = Nokogiri::HTML(open(BASE_URL))
-    list = donate.css(".box-09_cnt li").text
+    list = doc.css(".box-09_cnt li")[0..8]
+    list_items = list.each {|item| puts "#{item.text}"}
+    #doc.css(".box-09_cnt li")[9..18]
+    #doc.css(".box-09_cnt li")[19..32]
+    #doc.css(".box-09_cnt li")[33..36]
+    #doc.css(".box-09_cnt li")[37..49]
+    #doc.css(".box-09_cnt li")[50..55]
+    #binding.pry
+    #HumaneSociety::Supplies.new(list_items)
   end
 
 end

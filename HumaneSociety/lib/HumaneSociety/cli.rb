@@ -39,7 +39,7 @@ class HumaneSociety::CLI
        #elsif input == "2"
         puts "Here are the types of supplies needed:"
         headings
-        #headings_menu
+        headings_menu
       when "exit"
         goodbye
 
@@ -50,7 +50,6 @@ class HumaneSociety::CLI
    end
 
    def headings
-
      HumaneSociety::Scraper.scrape_donations
      @supply = HumaneSociety::Supplies.all
 
@@ -60,6 +59,17 @@ class HumaneSociety::CLI
    end
 
    def headings_menu
+     input = nil
+     while input != "exit"
+        puts ""
+        puts "Please enter the number for your choice or type exit:"
+        input = gets.strip.downcase
+        #if input.to_i >0
+         #puts @deals{input.to_i - 1}
+
+       case input
+       when "1"
+     HumaneSociety::Scraper.scrape_donations_items
      #If number is 1-6
      #"put the heading for the index I chose"
    end

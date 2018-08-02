@@ -5,6 +5,7 @@ class HumaneSociety::Supplies
 
   def initialize(heading)
     @heading = heading
+    #@list_items = list_items
     @@all << self
 
   end
