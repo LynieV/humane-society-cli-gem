@@ -5,8 +5,8 @@ class HumaneSociety::CLI
   def start
     puts "Welcome to Hornell Humane Society donations."
     puts ""
-    list_options
 
+    list_options
     main_menu
 
   end
@@ -24,20 +24,17 @@ class HumaneSociety::CLI
        puts ""
        puts "Please enter the number for your choice or type exit:"
        input = gets.strip.downcase
-       #if input.to_i >0
-        #puts @deals{input.to_i - 1}
 
       case input
       when "1"
-       #if input == "1"
          puts "Please send checks to:"
          puts ""
          puts "Hornell Humane Society"
          puts "7649 Industrial Park Road"
          puts "Hornell, NY 14843"
       when "2"
-       #elsif input == "2"
         puts "Here are the types of supplies needed:"
+
         headings
         headings_menu
         return
@@ -52,10 +49,10 @@ class HumaneSociety::CLI
    end
 
    def headings
-     HumaneSociety::Scraper.scrape_donations
+     HumaneSociety::Scraper.scrape_donations #calls @@all array with headings
      @supply = HumaneSociety::Supplies.all
-     #binding.pry
-     @supply.each.with_index(1) do |donate, index|
+
+     @supply.each.with_index(1) do |donate, index| #iterates over and creates numbered list of headings
        puts "#{index}. #{donate.heading}"
      end
    end
@@ -66,38 +63,36 @@ class HumaneSociety::CLI
         puts ""
         puts "Please enter the number for your choice or type exit:"
         input = gets.strip.downcase
-        #if input.to_i >0
-         #puts @deals{input.to_i - 1}
 
        case input
        when "1"
          puts "Toys & Enrichment"
          puts ""
-         HumaneSociety::Scraper.scrape_donations_1
+         HumaneSociety::Scraper.scrape_toys
        when "2"
          puts "Office Supplies"
          puts "Most needed items are marked with a star."
          puts ""
-         HumaneSociety::Scraper.scrape_donations_2
+         HumaneSociety::Scraper.scrape_office
        when "3"
          puts "Cleaning Supplies"
          puts "Most needed items are marked with a star."
          puts ""
-         HumaneSociety::Scraper.scrape_donations_3
+         HumaneSociety::Scraper.scrape_cleaning
        when "4"
          puts "Food & Treats"
          puts ""
-         HumaneSociety::Scraper.scrape_donations_4
+         HumaneSociety::Scraper.scrape_food
        when "5"
          puts "Kennel Care"
          puts "Most needed items are marked with a star."
          puts ""
-         HumaneSociety::Scraper.scrape_donations_5
+         HumaneSociety::Scraper.scrape_kennel
        when "6"
          puts "More!"
          puts "Most needed items are marked with a star."
          puts ""
-         HumaneSociety::Scraper.scrape_donations_6
+         HumaneSociety::Scraper.scrape_more
 
        when "exit"
          goodbye
@@ -112,29 +107,5 @@ class HumaneSociety::CLI
      puts ""
      puts "Thank you!"
      puts ""
-     #return
-     #break
    end
-#    while c1
-#      while c2
-#       # execute code
-#       do_break = true if need_to_break_out_of_parent_loop
-#      end
-#      break if do_break
-#    end
-
-# def workforce
-#   bank.branches do |branch|
-#     switch = 0
-#     branch.employees.each do |employee|
-#       if switch == 1
-#        next
-#       end
-#       if employee.name = "John Doe"
-#        switch = 1
-#       end
-#    end
-#  end
-
-
  end

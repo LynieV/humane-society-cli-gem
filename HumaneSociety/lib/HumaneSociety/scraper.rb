@@ -22,47 +22,46 @@ class HumaneSociety::Scraper
     headings.each do |heading|
       HumaneSociety::Supplies.new(heading)
     end
-    #binding.pry
   end
 
-  #Is there a way to call out list according to heading?
-  #Or create an array of index numbers to call with heading number?
-  # is index number the best way to separate lists?
-
-  def self.scrape_donations_1
+  def self.scrape_toys
     doc = Nokogiri::HTML(open(BASE_URL))
     list = doc.css(".box-09_cnt li")[0..8] #call list elements by index number
     list_items = list.each {|item| puts "#{item.text}"} #puts list
   end
 
-  def self.scrape_donations_2
+  def self.scrape_office
     doc = Nokogiri::HTML(open(BASE_URL))
     list = doc.css(".box-09_cnt li")[9..18]
     list_items = list.each {|item| puts "#{item.text}"}
   end
 
-  def self.scrape_donations_3
+  def self.scrape_cleaning
     doc = Nokogiri::HTML(open(BASE_URL))
     list = doc.css(".box-09_cnt li")[19..32]
     list_items = list.each {|item| puts "#{item.text}"}
   end
 
-  def self.scrape_donations_4
+  def self.scrape_food
     doc = Nokogiri::HTML(open(BASE_URL))
     list = doc.css(".box-09_cnt li")[33..36]
     list_items = list.each {|item| puts "#{item.text}"}
   end
 
-  def self.scrape_donations_5
+  def self.scrape_kennel
     doc = Nokogiri::HTML(open(BASE_URL))
     list = doc.css(".box-09_cnt li")[37..49]
     list_items = list.each {|item| puts "#{item.text}"}
   end
 
-  def self.scrape_donations_6
+  def self.scrape_more
     doc = Nokogiri::HTML(open(BASE_URL))
     list = doc.css(".box-09_cnt li")[50..55]
     list_items = list.each {|item| puts "#{item.text}"}
   end
-    #binding.pry
 end
+
+
+  #Is there a way to call out list according to heading?
+  #Or create an array of index numbers to call with heading number?
+  # is index number the best way to separate lists?
