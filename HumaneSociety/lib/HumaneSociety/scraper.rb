@@ -22,12 +22,12 @@ class HumaneSociety::Scraper
     headings.each do |heading|
       HumaneSociety::Supplies.new(heading)
     end
-
+    #binding.pry
   end
 
   def self.scrape_donations_items
     doc = Nokogiri::HTML(open(BASE_URL))
-    list = doc.css(".box-09_cnt li")#[0..8] - best way to separate lists?
+    list = doc.css(".box-09_cnt li")[0..8]# - best way to separate lists?
     list_items = list.each {|item| puts "#{item.text}"}
 
     #Is there a way to call out list according to heading?

@@ -7,7 +7,9 @@ class HumaneSociety::Supplies
     @heading = heading
     #@list_items = list_items
     @@all << self
+  end
 
+  def self.list_items
   end
 
   def self.all

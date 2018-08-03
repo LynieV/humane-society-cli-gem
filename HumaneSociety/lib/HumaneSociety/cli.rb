@@ -39,7 +39,7 @@ class HumaneSociety::CLI
        #elsif input == "2"
         puts "Here are the types of supplies needed:"
         headings
-        headings_menu
+        #headings_menu
       when "exit"
         goodbye
 
@@ -52,10 +52,11 @@ class HumaneSociety::CLI
    def headings
      HumaneSociety::Scraper.scrape_donations
      @supply = HumaneSociety::Supplies.all
-
+     #binding.pry
      @supply.each.with_index(1) do |donate, index|
        puts "#{index}. #{donate.heading}"
      end
+     #HumaneSociety::Scraper.scrape_donations_items
    end
 
    def headings_menu
@@ -68,14 +69,36 @@ class HumaneSociety::CLI
          #puts @deals{input.to_i - 1}
 
        case input
-       when "1" #If number is 1-6- can I call these together and then
-         #if anything else it gives generic "invalid response"
+       when "1"
+         puts "Toys & Enrichment"
+         puts ""
+         #HumaneSociety::Scraper.scrape_donations_items[0..8]
          #puts "Toys & Enrichment" #call heading and then list_items
          #puts ""
          #puts "list_items [0..8]" #how do I get the right list items?
-     HumaneSociety::Scraper.scrape_donations_items
-
-
+       when "2"
+         puts "Office Supplies"
+         puts ""
+         #HumaneSociety::Scraper.scrape_donations_items[9..18]
+       when "3"
+         puts "Cleaning Supplies"
+         puts ""
+         #HumaneSociety::Scraper.scrape_donations_items[19..32]
+       when "4"
+         puts "Food & Treats"
+         puts ""
+         #HumaneSociety::Scraper.scrape_donations_items[33..36]
+       when "5"
+         puts "Kennel Care"
+         puts ""
+         #HumaneSociety::Scraper.scrape_donations_items[37..49]
+       when "6"
+         puts "More!"
+         puts ""
+         #HumaneSociety::Scraper.scrape_donations_items[50..55]
+     #HumaneSociety::Scraper.scrape_donations_items
+      end
+    end
    end
 
    def goodbye
