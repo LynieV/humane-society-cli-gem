@@ -6,7 +6,6 @@ class HumaneSociety::Scraper
     doc = Nokogiri::HTML(open(BASE_URL))
 
     supply_string = doc.css(".box-09_cnt a").text #text jumbled together
-    #supply_string = doc.css(".box-09_cnt a")[0].text
     supply_arrays = supply_string.split(" ") #split text at spaces
     supply_array = supply_arrays.map {|supplies| supplies.split(/(?=[A-Z&])/)}.flatten
       #split at capital letters and & and nested array becomes one array of strings

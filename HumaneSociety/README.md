@@ -1,8 +1,10 @@
 # HumaneSociety
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/HumaneSociety`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to the unofficial Humane Society CLI gem!
 
-TODO: Delete this and the text above, and describe your gem
+This CLI app scrapes the Hornell Humane Society Donations page at: https://www.hornellanimalshelter.org/donate.html.
+
+Users have the option of viewing the information regarding financial donations as well as supplies needed to maintain the facility and the well being of the animals housed there.
 
 ## Installation
 
@@ -22,7 +24,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To use this gem follow the installation instructions above. The original code is for giving information regarding donation options for the humane society website. Feel free to edit according to your needs.
+
+To run the CLI, type in ./bin/humanesociety, which will give you instructions to choose options regarding donations to the Hornell Humane Society.
+
+When you are finished reviewing the lists, type 'exit' to exit the CLI.
 
 ## Development
 
