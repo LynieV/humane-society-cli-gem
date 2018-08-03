@@ -40,6 +40,8 @@ class HumaneSociety::CLI
         puts "Here are the types of supplies needed:"
         headings
         headings_menu
+        return
+
       when "exit"
         goodbye
 
@@ -74,10 +76,12 @@ class HumaneSociety::CLI
          HumaneSociety::Scraper.scrape_donations_1
        when "2"
          puts "Office Supplies"
+         puts "Most needed items are marked with a star."
          puts ""
          HumaneSociety::Scraper.scrape_donations_2
        when "3"
          puts "Cleaning Supplies"
+         puts "Most needed items are marked with a star."
          puts ""
          HumaneSociety::Scraper.scrape_donations_3
        when "4"
@@ -86,10 +90,12 @@ class HumaneSociety::CLI
          HumaneSociety::Scraper.scrape_donations_4
        when "5"
          puts "Kennel Care"
+         puts "Most needed items are marked with a star."
          puts ""
          HumaneSociety::Scraper.scrape_donations_5
        when "6"
          puts "More!"
+         puts "Most needed items are marked with a star."
          puts ""
          HumaneSociety::Scraper.scrape_donations_6
 
@@ -97,7 +103,7 @@ class HumaneSociety::CLI
          goodbye
 
        else
-         puts "Please choose a valid option or exit."
+         puts "Please choose a VALID OPTION or exit."
        end
      end
    end
@@ -106,7 +112,29 @@ class HumaneSociety::CLI
      puts ""
      puts "Thank you!"
      puts ""
+     #return
      #break
    end
+#    while c1
+#      while c2
+#       # execute code
+#       do_break = true if need_to_break_out_of_parent_loop
+#      end
+#      break if do_break
+#    end
+
+# def workforce
+#   bank.branches do |branch|
+#     switch = 0
+#     branch.employees.each do |employee|
+#       if switch == 1
+#        next
+#       end
+#       if employee.name = "John Doe"
+#        switch = 1
+#       end
+#    end
+#  end
+
 
  end
