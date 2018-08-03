@@ -44,7 +44,7 @@ class HumaneSociety::CLI
         goodbye
 
       else
-         puts "Please choose a valid option or type exit"
+         puts "PLEASE CHOOSE A VALID OPTION or exit."
       end
      end
    end
@@ -56,7 +56,6 @@ class HumaneSociety::CLI
      @supply.each.with_index(1) do |donate, index|
        puts "#{index}. #{donate.heading}"
      end
-     #HumaneSociety::Scraper.scrape_donations_items
    end
 
    def headings_menu
@@ -72,115 +71,42 @@ class HumaneSociety::CLI
        when "1"
          puts "Toys & Enrichment"
          puts ""
-         #HumaneSociety::Scraper.scrape_donations_items[0..8]
-         #puts "Toys & Enrichment" #call heading and then list_items
-         #puts ""
-         #puts "list_items [0..8]" #how do I get the right list items?
+         HumaneSociety::Scraper.scrape_donations_1
        when "2"
          puts "Office Supplies"
          puts ""
-         #HumaneSociety::Scraper.scrape_donations_items[9..18]
+         HumaneSociety::Scraper.scrape_donations_2
        when "3"
          puts "Cleaning Supplies"
          puts ""
-         #HumaneSociety::Scraper.scrape_donations_items[19..32]
+         HumaneSociety::Scraper.scrape_donations_3
        when "4"
          puts "Food & Treats"
          puts ""
-         #HumaneSociety::Scraper.scrape_donations_items[33..36]
+         HumaneSociety::Scraper.scrape_donations_4
        when "5"
          puts "Kennel Care"
          puts ""
-         #HumaneSociety::Scraper.scrape_donations_items[37..49]
+         HumaneSociety::Scraper.scrape_donations_5
        when "6"
          puts "More!"
          puts ""
-         #HumaneSociety::Scraper.scrape_donations_items[50..55]
-     #HumaneSociety::Scraper.scrape_donations_items
-      when "exit"
-        goodbye
+         HumaneSociety::Scraper.scrape_donations_6
 
-      else
-        puts "Please choose a valid option or exit."
-      end
-    end
+       when "exit"
+         goodbye
+
+       else
+         puts "Please choose a valid option or exit."
+       end
+     end
    end
 
    def goodbye
      puts ""
      puts "Thank you!"
      puts ""
-     #break!
+     #break
    end
 
  end
-         #binding.pry
-  #     puts ""
-  #     puts "Please select a donation type to view needed items:"
-  #
-  #     input = gets.strip
-  #     index = input.to_i - 1
-  #
-  #     supply = HumaneSociety::Supplies.all[index]
-  #
-  #     HumaneSociety::Scraper.scrape_donations_items(donation_type)
-  #
-  #     puts "Here are the items:"
-  #     puts ""
-  #     puts supply.list_items
-  #
-  #   #binding.pry
-  #   main_menu
-  # end
-
-
-
-#def menu
-  #input = nil
-#   while input != "exit"
-#     puts ""
-#     puts "Please enter the number for your choice or type exit:"
-#     input = gets.strip.downcase
-#     #case input
-#     #when "1"
-#     if input == "1"
-#       puts "Please send checks to:"
-#       puts ""
-#       puts "Hornell Humane Society"
-#       puts "7649 Industrial Park Road"
-#       puts "Hornell, NY 14843"
-#     #when "2"
-#     elsif input == "2"
-#
-#       puts "Supplies needed:"
-#       supplies = HumaneSociety::Supplies.all
-#
-#     #when "list"
-#       #list_options
-#     else
-#       "Please choose a valid option or type exit"
-#     end
-#   end
-# end
-
-
-#User will see a greeting and be asked to enter a number
-#corresponding to a prompt:
-#1 Exit
-#2 Financial
-#3 Supply List
-
-#  list.each.with_index(1) do |list, index|
-#    puts "#{index}. #{list.title}"
-#  end
-
-#when user chooses supply list, they will see a list
-#of headings for items needed
-
-#from this list, the user will be asked to enter the number
-#for the heading and will see the list of items from that heading
-#or go back to the main menu
-
-#there is a supply class to represent each category
-#of supplies. A supply scraper to scrape the site and Humane Society
-#CLI to interact with the user
