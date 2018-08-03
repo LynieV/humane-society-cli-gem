@@ -39,7 +39,7 @@ class HumaneSociety::CLI
        #elsif input == "2"
         puts "Here are the types of supplies needed:"
         headings
-        #headings_menu
+        headings_menu
       when "exit"
         goodbye
 
@@ -97,6 +97,11 @@ class HumaneSociety::CLI
          puts ""
          #HumaneSociety::Scraper.scrape_donations_items[50..55]
      #HumaneSociety::Scraper.scrape_donations_items
+      when "exit"
+        goodbye
+
+      else
+        puts "Please choose a valid option or exit."
       end
     end
    end
@@ -105,6 +110,7 @@ class HumaneSociety::CLI
      puts ""
      puts "Thank you!"
      puts ""
+     #break!
    end
 
  end

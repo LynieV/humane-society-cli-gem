@@ -10,6 +10,9 @@ class HumaneSociety::Supplies
   end
 
   def self.list_items
+    #do I put code for list_items here?
+    #how do I call range of index numbers according to heading #?
+    #do I do this ^ here?
   end
 
   def self.all
